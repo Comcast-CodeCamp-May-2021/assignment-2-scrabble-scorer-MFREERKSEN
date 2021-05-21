@@ -73,13 +73,12 @@ function initialPrompt() {
 
 function scrabbleScore(word) {
   // console.log(word)
-  word = word.toUpperCase();
-  let letterPoints = ""
-  for (let i = 0; i < word.length; i++){
-
-    for(const letter in newPointStructure){
+  word = word.toLowerCase();
+  let letterPoints = 0;
+    for (let i = 0; i < word.length; i++){
+      for(const letter in newPointStructure){
       if (letter.includes(word[i])) {
-        letterPoints += `Points for '${word[i]}': ${newPointStructure[letter]}\n`
+        letterPoints += newPointStructure[letter];
       }
     }
   }
@@ -89,22 +88,23 @@ function scrabbleScore(word) {
   let oldScrabbleScorer = {
     name: "Classic Scrabble",
     description: "The traditional scoring algorithm.",
-    scoringFunction: function oldScrabbleScorer(word) {
-      word = word.toUpperCase();
-	    let letterPoints = "";
+    scoringFunction: scrabbleScore
+    //  function oldScrabbleScorer(word) {
+    //   word = word.toUpperCase();
+	  //   let letterPoints = "";
  
-	    for (let i = 0; i < word.length; i++) {
+	  //   for (let i = 0; i < word.length; i++) {
  
-	      for (const pointValue in oldPointStructure) {
+	  //     for (const pointValue in oldPointStructure) {
  
-		      if (oldPointStructure[pointValue].includes(word[i])) {
-		    	  letterPoints += `Points for '${word[i]}': ${pointValue}\n`
-		      }
+		//       if (oldPointStructure[pointValue].includes(word[i])) {
+		//     	  letterPoints += `Points for '${word[i]}': ${pointValue}\n`
+		//       }
  
-	      }
-	    }
-	    return letterPoints;
-    }
+	  //     }
+	  //   }
+	  //   return letterPoints;
+    // }
 
   };
   let simpleScore = {
@@ -146,7 +146,7 @@ function scrabbleScore(word) {
   };
 
 let scoringAlgorithms = [vowelBonusScore,simpleScore,oldScrabbleScorer];
-scoringAlgorithms[oldScrabbleScorer.scoringFunction] = scrabbleScore;
+// scoringAlgorithms[oldScrabbleScorer].scoringFunction = scrabbleScore;
 function initialPrompt() {
   
   console.clear();
@@ -194,7 +194,9 @@ function transform(scoreObject) {
       
   }
   } 
-  console.log(newScrabbleRules);
+  // console.log(newScrabbleRules);
+  
+      
   return newScrabbleRules
 }
 let newPointStructure = transform(oldPointStructure);
@@ -202,6 +204,7 @@ let newPointStructure = transform(oldPointStructure);
 function runProgram() {
    initialPrompt();
    scorerPrompt();
+  //  console.log({newPointStructure});
   // console.log(scrabbleScore(word));
   //  transform(oldPointStructure);
 }
