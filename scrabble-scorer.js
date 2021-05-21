@@ -125,7 +125,7 @@ let vowelBonusScore = {
     let vowelsObject = {
       3: ["A", "E", "I", "O", "U"]
     }
-    let vowelBonusScore = 0
+    let vowelBonusScore = ""
     for (let i = 0; i < word.length; i++) {
 
       for (const vowelBonusPointValue in vowelsObject) {
