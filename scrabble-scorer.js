@@ -107,7 +107,7 @@ let oldScrabbleScorer = {
   }
 
 };
-let simpleScore = {
+simpleScore = {
   name: "Simple Score",
   description: "Each Letter is worth 1 point.",
   scoringFunction: function simpleScore(word) {
