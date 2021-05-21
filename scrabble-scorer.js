@@ -103,7 +103,7 @@ let oldScrabbleScorer = {
 
       }
     }
-    return letterPoints;
+    return Number(letterPoints);
   }
 
 };
