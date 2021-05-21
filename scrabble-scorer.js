@@ -39,9 +39,9 @@ function initialPrompt() {
   
   word = input.question("Enter a word to score: ")
  
-  console.log(oldScrabbleScorer(word));
-  console.log(simpleScore(word));
-  console.log(vowelBonusScore(word));
+  // console.log(oldScrabbleScorer(word));
+  // console.log(simpleScore(word));
+  // console.log(vowelBonusScore(word));
 
   return word
 };
@@ -88,7 +88,7 @@ function scrabbleScore(word) {
   return letterPoints
 }
 // let scrabbleScore;
-  let oldScrabbleScorer = {
+  let oldScrabbleScorerObject = {
     name: "Classic Scrabble",
     description: "The traditional scoring algorithm.",
     scoringFunction: scrabbleScore
@@ -110,7 +110,7 @@ function scrabbleScore(word) {
     // }
 
   };
-  let simpleScore = {
+  let simpleScoreObject = {
    name: "Simple Score",
    description: "Each Letter is worth 1 point.",
    scoringFunction: simpleScore
@@ -121,7 +121,7 @@ function scrabbleScore(word) {
   //   }
   };
 
-  let vowelBonusScore = {
+  let vowelBonusScoreObject = {
     name: "Bonus Vowel",
     description: "Vowels are Worth 3 pts Constants are worth 1 pt",
     scoringFunction : vowelBonusScore
@@ -150,7 +150,7 @@ function scrabbleScore(word) {
     // }
   };
 
-let scoringAlgorithms = [vowelBonusScore,simpleScore,oldScrabbleScorer];
+let scoringAlgorithms = [vowelBonusScoreObject,simpleScoreObject,oldScrabbleScorerObject];
 // scoringAlgorithms[oldScrabbleScorer].scoringFunction = scrabbleScore;
 function initialPrompt() {
   
@@ -173,18 +173,19 @@ function initialPrompt() {
 function scorerPrompt() {
  let userRulesChoice = input.question("What scoring method would you like to use?\n\nEnter 0 for Simple Score Rules\nEnter 1 Vowel Bonus Rules\nEnter 2 for Classic Scrabble Rules\nYour Choice?:");
 
-    if (userRulesChoice === "0"){
-      console.log(`Scoring Method you chose is "Simple Score" Total Points ${simpleScore.scoringFunction(word)}`);
-        return (simpleScore.scoringFunction(word));
-      }else if (userRulesChoice == "1"){
-        console.log(`Scoring Method you chose is "Vowel Bonus" Total Points ${vowelBonusScore.scoringFunction(word)}`);
-           return (vowelBonusScore.scoringFunction(word));
-        }else if (userRulesChoice == "2"){
-          console.log(`Scoring Method you chose is "Classic Scrabble"\n${oldScrabbleScorer.scoringFunction(word)}`);
-           return (oldScrabbleScorer.scoringFunction(word));
+    // if (userRulesChoice === "0"){
+    //   console.log(`Scoring Method you chose is "Simple Score" Total Points ${simpleScore.scoringFunction(word)}`);
+    //     return (simpleScoreObject.scoringFunction(word));
+    //   }else if (userRulesChoice == "1"){
+    //     console.log(`Scoring Method you chose is "Vowel Bonus" Total Points ${vowelBonusScoreObject.scoringFunction(word)}`);
+    //        return (vowelBonusScore.scoringFunction(word));
+    //     }else if (userRulesChoice == "2"){
+    //       console.log(`Scoring Method you chose is "Classic Scrabble"\n${oldScrabbleScorerObject.scoringFunction(word)}`);
+    //        return (oldScrabbleScorer.scoringFunction(word));
            
-          }
-        
+    //       }
+   console.log(`Score for ${word} is ${scoringAlgorithms[userRulesChoice].scoringFunction(word)}.'`);
+        return userRulesChoice
     }
   
  
@@ -209,6 +210,7 @@ let newPointStructure = transform(oldPointStructure);
 function runProgram() {
    initialPrompt();
    scorerPrompt();
+   
   //  console.log({newPointStructure});
   // console.log(scrabbleScore(word));
   //  transform(oldPointStructure);
