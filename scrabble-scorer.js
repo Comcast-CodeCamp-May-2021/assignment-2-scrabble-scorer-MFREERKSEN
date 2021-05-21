@@ -46,30 +46,30 @@ function initialPrompt() {
   return word
 };
 
- function simpleScore(word){
-  let simpleScore = word.length; 
-  console.log(`Simple Score is: ${Number(simpleScore)}`);
-};
+//  function simpleScore(word){
+//   let simpleScore = word.length; 
+//   console.log(`Simple Score is: ${Number(simpleScore)}`);
+// };
 
-function vowelBonusScore(word){
-word = word.toUpperCase();
-let vowelsObject = {
-  3: ["A","E","I","O","U"]
-}
-let vowelBonusScore = 0
-  for (let i = 0; i < word.length;i ++){
+// function vowelBonusScore(word){
+// word = word.toUpperCase();
+// let vowelsObject = {
+//   3: ["A","E","I","O","U"]
+// }
+// let vowelBonusScore = 0
+//   for (let i = 0; i < word.length;i ++){
 
-    for (const vowelBonusPointValue in vowelsObject) {
+//     for (const vowelBonusPointValue in vowelsObject) {
 
-    if (vowelsObject[vowelBonusPointValue].includes(word[i])){
-    (vowelBonusScore += 3);
+//     if (vowelsObject[vowelBonusPointValue].includes(word[i])){
+//     (vowelBonusScore += 3);
 
-  } else (vowelBonusScore += 1);
+//   } else (vowelBonusScore += 1);
 
-  }
-  }
- console.log(`Vowel Bonus Score is: ${vowelBonusScore}`);
-}
+//   }
+//   }
+//  console.log(`Vowel Bonus Score is: ${vowelBonusScore}`);
+// }
 
 function scrabbleScore(word) {
   // console.log(word)
