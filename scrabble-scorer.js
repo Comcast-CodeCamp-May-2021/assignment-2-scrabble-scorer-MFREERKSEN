@@ -83,7 +83,7 @@ function scrabbleScore(word) {
       }
     }
   }
-  return letterPoints
+  return Number(letterPoints)
 }
 // let scrabbleScore;
 let oldScrabbleScorer = {
