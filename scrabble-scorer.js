@@ -143,6 +143,7 @@ function scrabbleScore(word) {
       }
       return vowelBonusScore;
     }
+    
   };
 
 let scoringAlgorithms = [vowelBonusScore,simpleScore,oldScrabbleScorer];
