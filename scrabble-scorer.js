@@ -150,7 +150,7 @@ function scrabbleScore(word) {
     // }
   };
 
-let scoringAlgorithms = [vowelBonusScoreObject,simpleScoreObject,oldScrabbleScorerObject];
+let scoringAlgorithms = [simpleScoreObject,vowelBonusScoreObject,oldScrabbleScorerObject];
 // scoringAlgorithms[oldScrabbleScorer].scoringFunction = scrabbleScore;
 function initialPrompt() {
   
@@ -210,7 +210,7 @@ let newPointStructure = transform(oldPointStructure);
 function runProgram() {
    initialPrompt();
    scorerPrompt();
-   
+
   //  console.log({newPointStructure});
   // console.log(scrabbleScore(word));
   //  transform(oldPointStructure);
