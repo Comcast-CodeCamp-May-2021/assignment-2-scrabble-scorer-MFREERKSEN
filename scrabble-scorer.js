@@ -46,10 +46,10 @@ function initialPrompt() {
   return word
 };
 
-//  function simpleScore(word){
-//   let simpleScore = word.length; 
-//   console.log(`Simple Score is: ${Number(simpleScore)}`);
-// };
+ function simpleScore(word){
+  let simpleScore = word.length; 
+  console.log(`Simple Score is: ${Number(simpleScore)}`);
+};
 
 // function vowelBonusScore(word){
 // word = word.toUpperCase();
@@ -103,7 +103,7 @@ let oldScrabbleScorer = {
 
       }
     }
-    return Number(letterPoints);
+    return letterPoints;
   }
 
 };
@@ -111,11 +111,11 @@ let simpleScore = {
   name: "Simple Score",
   description: "Each Letter is worth 1 point.",
   scoringFunction: function simpleScore(word) {
-    let simpleScore = word.length;
-    // console.log(`Simple Score is: ${Number(simpleScore)}`);
-    return simpleScore;
-  }
-};
+//     let simpleScore = word.length;
+
+//     return simpleScore;
+//   }
+// };
 
 let vowelBonusScore = {
   name: "Bonus Vowel",
@@ -125,7 +125,7 @@ let vowelBonusScore = {
     let vowelsObject = {
       3: ["A", "E", "I", "O", "U"]
     }
-    let vowelBonusScore = ""
+    let vowelBonusScore = 0
     for (let i = 0; i < word.length; i++) {
 
       for (const vowelBonusPointValue in vowelsObject) {
@@ -139,7 +139,6 @@ let vowelBonusScore = {
 
         }
       }
-      // console.log(`Vowel Bonus Score is: ${vowelBonusScore}`);
     }
     return vowelBonusScore;
   }
@@ -159,12 +158,6 @@ function initialPrompt() {
   // console.log(vowelBonusScore.scoringFunction(word));
 };
 
-// Finish writing scorerPrompt() so that the user can select which scoring algorithm to use when the program scores their word. Use the selected algorithm to determine the score for the word:
-
-// If the user enters 0, have the program output a score using the simple scorer.
-// If the user enters 1, use the vowel bonus scoring function.
-// If the user enters 2, use the Scrabble scoring option.
-// scorerPrompt() should return the object the user has selected.
 function scorerPrompt() {
   let userRulesChoice = input.question("What scoring method would you like to use?\n\nEnter 0 for Simple Score Rules\nEnter 1 Vowel Bonus Rules\nEnter 2 for Classic Scrabble Rules\nYour Choice?:");
 
@@ -182,13 +175,10 @@ function scorerPrompt() {
 
 }
 
-
-
 function transform(scoreObject) {
   let newScrabbleRules = {};
   for (let item in scoreObject) {
     let newKey = scoreObject[item]
-    // console.log({newKey});
     for (i = 0; i < newKey.length; i++) {
       newScrabbleRules[newKey[i]] = Number(item);
 
@@ -198,12 +188,10 @@ function transform(scoreObject) {
   return newScrabbleRules
 }
 let newPointStructure = transform(oldPointStructure);
-// scorerPrompt(word)
+
 function runProgram() {
   initialPrompt();
   scorerPrompt();
-  // console.log(scrabbleScore(word));
-  //  transform(oldPointStructure);
 }
 
 // Don't write any code below this line //
