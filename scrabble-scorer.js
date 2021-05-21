@@ -143,7 +143,7 @@ function scrabbleScore(word) {
       }
       return vowelBonusScore;
     }
-    
+
   };
 
 let scoringAlgorithms = [vowelBonusScore,simpleScore,oldScrabbleScorer];
@@ -191,7 +191,7 @@ function transform(scoreObject) {
     let newKey = scoreObject[item]
     // console.log({newKey});
     for(i = 0; i < newKey.length;i ++){
-      newScrabbleRules[newKey[i]] = Number(item);
+      newScrabbleRules[newKey[i]] = (item);
       
   }
   } 
